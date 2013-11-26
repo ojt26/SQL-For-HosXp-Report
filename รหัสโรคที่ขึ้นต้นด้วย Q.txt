@@ -1,0 +1,6 @@
+select  pt.hn,pname,fname, lname,pdx
+from vn_stat ov ,patient pt ,ovst ovst
+where  ov.vn=ovst.vn and pt.hn=ov.hn and ov.vstdate between "2011-09-01" and  "2012-09-30" and ov.hn=pt.hn
+and ov.age_y>= 0
+and ov.age_y<= 200
+and ((ov.pdx like "q%"))
