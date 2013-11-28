@@ -1,0 +1,13 @@
+//ผู้ป่วยโรคซึมเศร้า 10ปีหลัง ชื่อไม่ซ้ำ รหัสโรคหลังอันเดียวไม่ซ้ำ
+
+select DISTINCT pt.fname as Name, pt.lname as LastName, pt.cid as IDCard,ov.age_y as Age,ov.pdx as DX
+from vn_stat ov ,patient pt ,ovst ovst 
+where  ov.vn=ovst.vn and pt.hn=ov.hn and ov.vstdate between "2003-01-01" and  "2013-12-31" and ov.hn=pt.hn
+
+ and ( (ov.pdx like "F32%") 
+ or (ov.pdx like "F33%") 
+ or (ov.pdx like "F34%") 
+ or (ov.pdx like "F38%") 
+ or (ov.pdx like "F39%") 
+)
+Limit 5
